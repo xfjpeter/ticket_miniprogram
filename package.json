@@ -1,0 +1,16 @@
+{
+  "name": "购票系统",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "buffer": "^5.2.1",
+    "crypto-js": "^3.1.9-1",
+    "vant-weapp": "^0.5.13"
+  }
+}

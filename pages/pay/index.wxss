@@ -1,0 +1,37 @@
+.header {
+  background-color: #fff;
+  padding: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.header view {
+  padding: 10rpx;
+}
+
+.title {
+  font-size: 30rpx;
+}
+
+.title text {
+  font-size: 24rpx;
+}
+
+.site text {
+  display: inline-block;
+  padding: 4rpx 10rpx;
+}
+
+.info view.cell {
+  margin-bottom: 16rpx;
+}
+
+.price .van-cell__value {
+  color: red !important;
+}
+
+.bottom {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}

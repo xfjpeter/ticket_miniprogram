@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-button": "../../miniprogram_npm/vant-weapp/button/index",
+    "van-card": "../../miniprogram_npm/vant-weapp/card/index"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "dark"
+}

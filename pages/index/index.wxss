@@ -1,0 +1,8 @@
+/* pages/index/index.wxss */
+.van-card__img {
+  border-radius: 10rpx;
+}
+
+van-card {
+  margin-bottom: 16rpx;
+}

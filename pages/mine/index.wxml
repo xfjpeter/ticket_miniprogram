@@ -1,0 +1,36 @@
+<view class="container">
+  <block wx:if="{{data.length > 0}}">
+    <view class="box" wx:for="{{data}}" wx:key="{{index}}">
+      <view class="box-title title">
+        {{item.details.hall.name}}
+        <text style="float: right; padding-right: 16rpx;" wx:if="{{item.status == 1}}">{{item.code}}</text>
+      </view>
+      <view class="box-content">
+        <view><text class="title">{{item.details.activity.name}}</text> {{item.details.hall.map.length}}张</view>
+        <view>{{item.details.activity.start_time}}</view>
+        <view style="width: 80%;">
+          <block wx:for="{{item.details.hall.sites}}" wx:key="{{index}}">
+            <van-tag style="margin-right: 10rpx;">{{item}}</van-tag>
+          </block>
+        </view>
+        <van-button wx:if="{{item.status == 0}}" bind:tap="payment" type="danger" size="small" data-index="{{index}}" class="payment">付款</van-button>
+        <van-tag wx:elif="{{item.status == 1}}" class="payment" type="success">已完成</van-tag>
+      </view>
+      <view class="box-footer">
+        <text>总价：{{item.total_price}}元</text>
+        <text wx:if="{{item.status == 0}}" class="pull-right cancel" data-no="{{item.order_no}}" bind:tap="cancel">取消</text>
+        <text wx:elif="{{item.status == 1}}" class="pull-right cancel">详情</text>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="no_data">
+      <view>
+        <image mode="widthFix" src="../../imgs/no_data.png"></image>
+      </view>
+      <view>暂无订单记录</view>
+    </view>
+  </block>
+  <van-dialog id="van-dialog" />
+  <van-notify id="van-notify" />
+</view>

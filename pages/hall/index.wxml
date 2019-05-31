@@ -1,0 +1,65 @@
+<view class="container">
+  <view class="info">
+    <view class="title">{{detail.name}}</view>
+    <view>{{detail.unit}}</view>
+    <view>{{detail.start_time}}</view>
+  </view>
+  <view class="site" wx:if="{{step}}">
+    <scroll-view scroll-x scroll-y scroll-with-animation style="height: 800rpx;">
+      <view class="table">
+        <view class="tr" wx:key="ri" wx:for="{{map}}" wx:for-index="ri" wx:for-item="r">
+          <view class="td" style="padding: 0;"><text class="td-bar">{{ri+1}}</text></view>
+          <block wx:for="{{r}}" wx:key="li" wx:for-index="li" wx:for-item="l">
+            <view class="td" wx:if="{{l.type === '#'}}">
+              <image class='seat' src="{{seatNone}}"></image>
+            </view>
+            <view class="td" wx:elif="{{l.type === '@'}}">
+              <image class='seat' src="{{seatSelected}}"></image>
+            </view>
+            <view bindtap="selectSite" data-x="{{ri}}" data-y="{{li}}" class="td" wx:elif="{{l.type === 'mine'}}">
+              <image class="seat" src="{{seatMine}}"></image>
+            </view>
+            <view bindtap="selectSite" data-x="{{ri}}" data-y="{{li}}" class="td" wx:else>
+              <image class='seat' src="{{seatNormal}}"></image>
+            </view>
+          </block>
+          <view class="td" style="padding: 0;"><text class="td-bar">{{ri+1}}</text></view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view wx:if="{{!step}}">
+    <van-cell-group wx:for="{{form}}" wx:key="{{index}}">
+      <van-field bind:change="onChange" value="{{item.value}}" data-index="{{index}}" placeholder="{{'请输入' + item.name}}" border="{{ false }}" />
+    </van-cell-group>
+  </view>
+  <!-- 提示信息 -->
+  <view class='tips' wx:if="{{step}}">
+    <image class='tipImg' src='{{seatNormal}}'></image>
+    可选
+    <image class='tipImg' src='{{seatMine}}'></image>
+    已选
+    <image class='tipImg' src='{{seatSelected}}'></image>
+    不可选
+  </view>
+  <!-- 已选座位展示区域 -->
+  <view class="bottom">
+
+    <view class="check" wx:if="{{step}}">
+      <scroll-view scroll-x scroll-y scroll-with-animation style="max-height: 184rpx;">
+        <view>已选座</view>
+        <view class="tag" wx:for="{{selected}}" wx:key="index">
+          <text>{{(item[0] + 1) + '排' + map[item[0]][item[1]].no + '座'}}</text>
+          <van-icon name="cross" bindtap="selectSite" data-x="{{item[0]}}" data-y="{{item[1]}}" />
+        </view>
+      </scroll-view>
+    </view>
+    <van-button wx:if="{{step}}" disabled="{{!selected.length}}" type="warning" block bindtap="submit">
+      {{buttonText}}
+    </van-button>
+    <van-button wx:else type="warning" block bindtap="step">下一步</van-button>
+
+  </view>
+  <van-toast id="van-toast" />
+  <van-notify id="van-notify" />
+</view>

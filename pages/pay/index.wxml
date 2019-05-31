@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="header">
+    <view class="title">
+      {{name}}
+      <text>{{map.length}}张</text>
+    </view>
+    <view class="time">{{startTime}}</view>
+    <view class="site">
+      <van-tag style="margin-right: 10rpx; margin-bottom: 10rpx; display: inline-block;" wx:for="{{sites}}" wx:key="{{index}}">{{item}}</van-tag>
+    </view>
+  </view>
+  <view class="info">
+    <view class="cell">
+      <van-cell-group>
+        <block wx:for="{{form}}" wx:key="{{index}}">
+          <van-cell title="{{item.name}}" value="{{item.value}}" />
+        </block>
+      </van-cell-group>
+    </view>
+    <view class="cell">
+      <van-cell-group>
+        <van-cell class="price" title="小计" value="{{'￥' + price * map.length}}" />
+      </van-cell-group>
+    </view>
+  </view>
+  <view class="bottom">
+    <van-button block type="warning" bind:tap="payment">确认支付</van-button>
+  </view>
+</view>

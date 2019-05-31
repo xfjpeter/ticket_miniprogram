@@ -1,0 +1,76 @@
+.box {
+  margin-bottom: 16rpx;
+  background-color: #fff;
+  position: relative;
+  color: #888;
+  padding-left: 16rpx;
+}
+
+.box::after, .box::before, .box-title::after, .box-footer::before {
+  position: absolute;
+  content: " ";
+  background-color: #ddd;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 1px;
+  transform: scaleY(0.5);
+}
+
+.box::after, .box-title::after {
+  bottom: 0;
+  top: auto;
+}
+
+.box .box-title, .box .box-footer {
+  position: relative;
+  left: 0;
+  top: 0;
+  font-size: 28rpx;
+  padding: 16rpx 0;
+}
+
+.box .box-content {
+  padding: 16rpx 0;
+}
+
+.box .box-content view {
+  margin: 10rpx 0;
+}
+
+.title {
+  color: #333;
+  font-size: 28rpx;
+}
+
+.payment {
+  position: absolute;
+  top: 50%;
+  margin-top: -30rpx;
+  right: 16rpx;
+}
+
+.pull-right {
+  float: right;
+}
+
+.cancel {
+  color: #f00;
+  margin-right: 16rpx;
+}
+
+.success {
+  color: #07c160;
+  margin-right: 16rpx;
+}
+
+.no_data {
+  color: #666;
+  margin-top: 30rpx;
+  text-align: center;
+}
+
+.no_data image {
+  width: 64px;
+  height: 64px;
+}

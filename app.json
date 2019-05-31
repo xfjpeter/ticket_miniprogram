@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/hall/index",
+    "pages/pay/index",
+    "pages/mine/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "购票系统",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#bfbfbf",
+    "selectedColor": "#ff976a",
+    "list": [{
+      "iconPath": "./imgs/home.png",
+      "selectedIconPath": "./imgs/home_selected.png",
+      "pagePath": "pages/index/index",
+      "text": "首页"
+    }, {
+      "iconPath": "./imgs/mine.png",
+      "selectedIconPath": "./imgs/mine_selected.png",
+      "pagePath": "pages/mine/index",
+      "text": "订单"
+    }]
+  }
+}

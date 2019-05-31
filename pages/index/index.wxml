@@ -1,0 +1,13 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <van-card wx:for="{{activity}}" wx:key="{{key}}" price="{{item.price}}" desc="{{item.description}}" title="{{item.name}}" thumb="{{item.logo}}" lazy-load>
+    <view slot="tags">
+      <view>活动时间: {{item.start_time}}</view>
+      <view>活动地址: {{item.address}}</view>
+    </view>
+    <view slot="footer">
+      <!-- <van-button loading="{{loading}}" size="small" type="primary" hairline>详情</van-button> -->
+      <van-button loading="{{loading}}" size="small" type="danger" data-no="{{item.no}}" bindtap="buy">购票</van-button>
+    </view>
+  </van-card>
+</view>
