@@ -1,5 +1,6 @@
 <!--pages/index/index.wxml-->
 <view class="container">
+  <block wx:if="{{activity.length > 0}}">
   <van-card wx:for="{{activity}}" wx:key="{{key}}" price="{{item.price}}" desc="{{item.description}}" title="{{item.name}}" thumb="{{item.logo}}" lazy-load>
     <view slot="tags">
       <view>活动时间: {{item.start_time}}</view>
@@ -10,4 +11,13 @@
       <van-button loading="{{loading}}" size="small" type="danger" data-no="{{item.no}}" bindtap="buy">购票</van-button>
     </view>
   </van-card>
+  </block>
+  <block wx:else>
+  <view class="no-activity">
+    <view>
+        <image mode="widthFix" src="../../imgs/no_activity.png"></image>
+      </view>
+      <view>暂无活动</view>
+  </view>
+  </block>
 </view>

@@ -6,3 +6,14 @@
 van-card {
   margin-bottom: 16rpx;
 }
+
+.no-activity {
+  color: #666;
+  margin-top: 30rpx;
+  text-align: center;
+}
+
+.no-activity image {
+  width: 64px;
+  height: 64px;
+}
